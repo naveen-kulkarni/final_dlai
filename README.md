@@ -54,4 +54,5 @@ Created namespaces: “services” and “monitoring”
 deployed vanilla nginx web server to “services” namespace.
 deploy prometheus and grafana to monitoring namespace
 
-![image](https://user-images.githubusercontent.com/33716521/233610652-e70aba21-9c44-466f-b4da-d962a2a208ff.png)
+![image](https://user-images.githubusercontent.com/33716521/233646071-a24734cc-d2ec-4f05-b8dd-f2d26621ed17.png)
+
