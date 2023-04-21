@@ -56,3 +56,30 @@ deploy prometheus and grafana to monitoring namespace
 
 ![image](https://user-images.githubusercontent.com/33716521/233646071-a24734cc-d2ec-4f05-b8dd-f2d26621ed17.png)
 
+
+
+======================================
+======================================
+
+Checking in GUI.
+
+Cluster:
+
+![image](https://user-images.githubusercontent.com/33716521/233646961-b2423b7d-59d0-4cb2-9d7b-d6d120b6e9b2.png)
+
+
+WOrkloads:
+
+![image](https://user-images.githubusercontent.com/33716521/233646565-7f31356b-03f2-4bda-bb0c-96907a33fa6f.png)
+
+Services and Ingress:
+
+![image](https://user-images.githubusercontent.com/33716521/233646823-d0a39b83-be6c-45ad-a2a6-5b3daf61ed38.png)
+
+Grafana:
+
+![image](https://user-images.githubusercontent.com/33716521/233647306-6cc1a0fe-6838-4c97-a64f-eddf65080cf2.png)
+
+Nginx:
+
+![image](https://user-images.githubusercontent.com/33716521/233647412-a64ac49f-492c-4a08-9012-5e688496171f.png)
