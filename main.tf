@@ -42,12 +42,6 @@ module "gcp-network" {
 
 data "google_client_config" "default" {}
 
-provider "kubernetes" {
-  host                   = "https://${module.gke.endpoint}"
-  token                  = data.google_client_config.default.access_token
-  cluster_ca_certificate = base64decode(module.gke.ca_certificate)
-}
-
 module "gke" {
   source                 = "terraform-google-modules/kubernetes-engine/google//modules/private-cluster"
   version                = "24.1.0"
@@ -64,7 +58,7 @@ module "gke" {
     {
       name                      = "node-pool"
       machine_type              = "e2-medium"
-      node_locations            = "us-west4-b"
+      node_locations            = "asia-south1-a"
       min_count                 = 1
       max_count                 = 2
       disk_size_gb              = 30
@@ -90,6 +84,9 @@ resource "kubernetes_deployment" "nginx" {
   metadata {
     name = "nginx"
     namespace = kubernetes_namespace.services.metadata[0].name
+      labels = {
+        app = "nginx"
+    }
   }
 
   spec {
@@ -110,19 +107,25 @@ resource "kubernetes_deployment" "nginx" {
 
       spec {
         container {
-          image = "nginx"
+          image = "nginx:latest"
           name  = "nginx"
+	  port {
+            container_port = 80
+          }
         }
       }
     }
   }
 }
 
-# Prometheus Deployment Configuration
+
 resource "kubernetes_deployment" "prometheus" {
   metadata {
-    name = "prometheus"
+    name      = "prometheus"
     namespace = kubernetes_namespace.monitoring.metadata[0].name
+    labels = {
+      app = "prometheus"
+    }
   }
 
   spec {
@@ -145,42 +148,81 @@ resource "kubernetes_deployment" "prometheus" {
         container {
           image = "prom/prometheus"
           name  = "prometheus"
-
+          port {
+            container_port = 9090
+          }
           args = [
             "--config.file=/etc/prometheus/prometheus.yml",
-            "--storage.tsdb.path=/prometheus",
+            "--storage.tsdb.path=/data",
             "--web.console.libraries=/usr/share/prometheus/console_libraries",
-            "--web.console.templates=/usr/share/prometheus/consoles",
+            "--web.console.templates=/usr/share/prometheus/consoles"
           ]
-
           volume_mount {
-            name       = "config-volume"
+            name       = "prometheus-config"
             mount_path = "/etc/prometheus"
           }
-
           volume_mount {
-            name       = "storage-volume"
-            mount_path = "/prometheus"
+            name       = "prometheus-storage"
+            mount_path = "/data"
           }
         }
 
         volume {
-          name = "config-volume"
-
+          name = "prometheus-config"
           config_map {
             name = "prometheus-config"
           }
         }
 
         volume {
-          name = "storage-volume"
-
+          name = "prometheus-storage"
           empty_dir {}
         }
       }
     }
   }
 }
+
+resource "kubernetes_config_map" "prometheus_config" {
+  metadata {
+    name      = "prometheus-config"
+    namespace = kubernetes_namespace.monitoring.metadata[0].name
+  }
+
+  data = {
+    "prometheus.yml" = <<-EOT
+    global:
+      scrape_interval: 15s
+      evaluation_interval: 15s
+
+    scrape_configs:
+      - job_name: 'prometheus'
+        static_configs:
+          - targets: ['localhost:9090']
+      - job_name: 'kube-apiserver'
+        kubernetes_sd_configs:
+          - role: endpoints
+        scheme: https
+        tls_config:
+          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+            separator: ;
+            regex: default;kubernetes;https
+            replacement: $1
+            target_label: __address__
+          - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+            separator: ;
+            regex: default;kubernetes;https
+            replacement: /api/v1/namespaces/$1/services/${2}:${3}/proxy
+            target_label: __metrics_path__
+    EOT
+  }
+}
+
+
+
 # Grafana Deployment Configuration
 resource "kubernetes_deployment" "grafana" {
   metadata {
@@ -249,9 +291,11 @@ resource "kubernetes_service" "grafana" {
 resource "kubernetes_service" "nginx" {
   metadata {
     name = "nginx"
-    namespace = "services"
-  }
-
+    namespace = kubernetes_namespace.services.metadata[0].name
+    annotations = {
+      "cloud.google.com/load-balancer-type" = "External"
+    }
+   }
   spec {
     selector = {
       app = "nginx"

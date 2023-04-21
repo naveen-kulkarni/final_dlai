@@ -13,15 +13,15 @@ variable "bucket_name" {
 
 variable "cluster_name" {
   description = "The name for the GKE cluster"
-  default     = "learnk8s-cluster"
+  default     = "naveen-k8s-cluster"
 }
 variable "env_name" {
   description = "The environment for the GKE cluster"
-  default     = "prod"
+  default     = "dev"
 }
 variable "region" {
   description = "The region to host the cluster in"
-  default     = "us-west4"
+  default     = "asia-south1"
 }
 variable "network" {
   description = "The VPC network created to host the cluster in"
