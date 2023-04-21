@@ -1,9 +1,9 @@
 
-=====================================================================================
+===============================================================
 Project_Name:	My-Project-14538
 Project_ID: 	my-project-14538-384315
 Principal:	naveenvk88@gmail.com
-=====================================================================================
+===============================================================
 
 Part A - terraform repository structure
 Repo Name : 01-Terraform Structure
@@ -12,30 +12,10 @@ Structure Description: multiple companies (company_a and company_b) that can hav
 
 Structure:
 
-C:\USERS\NAVEENK6\ONEDRIVE - VERIFONE\DESKTOP\DATALOOP_AI\NEW FOLDER\01-TERRAFORM STRUCTURE
-├───aws
-│   ├───company_a
-│   │   ├───modules
-│   │   ├───prod
-│   │   └───staging
-│   ├───company_b
-│   │   ├───modules
-│   │   ├───prod
-│   │   └───staging
-│   └───modules
-├───gcp
-│   ├───company_a
-│   │   ├───modules
-│   │   ├───prod
-│   │   └───staging
-│   ├───company_b
-│   │   ├───modules
-│   │   ├───prod
-│   │   └───staging
-│   └───modules
-└───modules
+![image](https://user-images.githubusercontent.com/33716521/233611011-a095a55d-f748-4d8c-ae2f-213f61065ab1.png)
+
  
-=============================================================================================================================================
+===============================================================
 Part B - terraform coding
 Repo Name: 02-Terraform-code
 Summary:
