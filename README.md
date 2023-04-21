@@ -25,6 +25,17 @@ Summary:
 4.	deploy prometheus and grafana to monitoring namespace
 5.	exposed nginx and grafana to the internet
 
+1:Terraform Initialization
+![image](https://user-images.githubusercontent.com/33716521/233643449-cd900535-c7d4-4118-af4c-21ef04ec6c1b.png)
+
+2:Terraform Validate
+![image](https://user-images.githubusercontent.com/33716521/233643503-bf1d4678-3f16-4099-a127-292c935b2b55.png)
+
+3:Terraform apply
+
+![image](https://user-images.githubusercontent.com/33716521/233643605-815f045e-b35f-4fc8-adc6-2a3fa5fc8cfe.png)
+
+=========================================
 Generating kubeconfig .
 ![image](https://user-images.githubusercontent.com/33716521/233610747-80d6b81c-70f1-4283-8878-f6307277d69d.png)
 
