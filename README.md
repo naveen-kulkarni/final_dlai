@@ -1,8 +1,11 @@
 
 ==========================================
 Project_Name:	My-Project-14538
+
 Project_ID: 	my-project-14538-384315
+
 Principal:	naveenvk88@gmail.com
+
 ==========================================
 
 Part A - terraform repository structure
@@ -19,7 +22,9 @@ Structure:
 
 
 Part B - terraform coding
+
 Repo Name: 02-Terraform-code
+
 Summary:
 1.	Create EKS cluster named “naveen-k8s-cluster-dev”.
 2.	Created namespaces: “services” and “monitoring”
