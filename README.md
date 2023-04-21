@@ -1,9 +1,9 @@
 
-===============================================================
+==========================================
 Project_Name:	My-Project-14538
 Project_ID: 	my-project-14538-384315
 Principal:	naveenvk88@gmail.com
-===============================================================
+==========================================
 
 Part A - terraform repository structure
 Repo Name : 01-Terraform Structure
@@ -15,7 +15,7 @@ Structure:
 ![image](https://user-images.githubusercontent.com/33716521/233611011-a095a55d-f748-4d8c-ae2f-213f61065ab1.png)
 
  
-===============================================================
+==========================================
 Part B - terraform coding
 Repo Name: 02-Terraform-code
 Summary:
