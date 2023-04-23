@@ -27,11 +27,12 @@ Part B - terraform coding
 Repo Name: 02-Terraform-code
 
 Summary:
-1.	Create EKS cluster named “naveen-k8s-cluster-dev”.
+1.	Created EKS cluster named “naveen-k8s-cluster-dev”.
 2.	Created namespaces: “services” and “monitoring”
 3.	deployed vanilla nginx web server to “services” namespace
-4.	deploy prometheus and grafana to monitoring namespace
+4.	deployed prometheus and grafana to monitoring namespace
 5.	exposed nginx and grafana to the internet
+
 
 1:Terraform Initialization
 ![image](https://user-images.githubusercontent.com/33716521/233643449-cd900535-c7d4-4118-af4c-21ef04ec6c1b.png)
@@ -56,6 +57,7 @@ deploy prometheus and grafana to monitoring namespace
 
 ![image](https://user-images.githubusercontent.com/33716521/233646071-a24734cc-d2ec-4f05-b8dd-f2d26621ed17.png)
 
+======================
 
 
 ======================================
