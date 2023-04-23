@@ -40,7 +40,9 @@ Summary:
 2:Terraform Validate
 ![image](https://user-images.githubusercontent.com/33716521/233643503-bf1d4678-3f16-4099-a127-292c935b2b55.png)
 
-3:Terraform apply
+3:Terraform Plan
+
+4:Terraform apply
 
 ![image](https://user-images.githubusercontent.com/33716521/233643605-815f045e-b35f-4fc8-adc6-2a3fa5fc8cfe.png)
 
