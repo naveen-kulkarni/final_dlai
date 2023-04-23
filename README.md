@@ -48,14 +48,14 @@ Summary:
 
 =========================================
 
-##Generating kubeconfig .
+##Generating kubeconfig(gcp does auto generate) .
 ![image](https://user-images.githubusercontent.com/33716521/233610747-80d6b81c-70f1-4283-8878-f6307277d69d.png)
 
 ##Created namespaces: “services” and “monitoring”
 ![image](https://user-images.githubusercontent.com/33716521/233610721-688eedaa-b2b7-48d5-a549-d593f115f139.png)
  
-##deployed vanilla nginx web server to “services” namespace.
-Deploed prometheus and grafana to monitoring namespace
+##Deployed vanilla nginx web server to “services” namespace.
+Deployed prometheus and grafana to monitoring namespace
 
 ![image](https://user-images.githubusercontent.com/33716521/233646071-a24734cc-d2ec-4f05-b8dd-f2d26621ed17.png)
 
