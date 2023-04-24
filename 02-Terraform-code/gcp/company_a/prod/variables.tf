@@ -1,36 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@naveen-kulkarni 
-naveen-kulkarni
-/
-final_dlai
-Public
-Cannot fork because you own this repository and are not a member of any organizations.
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Beta Try the new code view
-final_dlai/variables.tf
-
-naveenvk88@gmail.com ref-code
-Latest commit b4109a3 38 minutes ago
- History
- 0 contributors
-41 lines (40 sloc)  1.13 KB
- 
-
 variable "project_id" {
   default     = "my-project-14538-384315"
   description = "The project ID to host the cluster in"
@@ -72,18 +39,3 @@ variable "ip_range_services_name" {
   description = "The secondary ip range to use for services"
   default     = "ip-range-services"
 }
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-final_dlai/variables.tf at main · naveen-kulkarni/final_dlai
